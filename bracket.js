@@ -33,16 +33,18 @@ bracket = (function() {
         return this.team1.seed === 1;
       },
       weight: function() {
-        return [1.0, 1.0, 1.0, 1.0, 1.0][this.round];
+        return [1.0, 0.95, 0.9, 0.85, 0.8, 0.75][this.round];
       }
     });
 
-    addRule('Higher seed wins', {
+    addRule('Higher seed probablity', {
       match: function() {
         return this.team1.seed < this.team2.seed;
       },
       weight: function() {
-        return 0.75;
+        var rand  = Math.random();
+        var power = Math.pow(Math.log(this.team1.seed+1), (this.round+2)/2);
+        return rand * power;
       }
     });
 

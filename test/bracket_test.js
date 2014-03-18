@@ -22,14 +22,14 @@ describe("Bracket" , function() {
   var game, team1, team2;
 
   beforeEach(function() {
-    game  = new Game();
+    game  = new Game({ round: 0 });
     team1 = new Team();
     team2 = new Team();
   });
 
   describe("Round 1", function() {
     beforeEach(function() {
-      game.round = 1;
+      game.round = 0;
     });
     it('favors team1 No. 1 seed in Round 1', function() {
       team1.seed = 1, team2.seed = 2;
