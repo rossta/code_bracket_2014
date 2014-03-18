@@ -31,14 +31,14 @@ describe("Bracket" , function() {
     beforeEach(function() {
       game.round = 1;
     });
-    it('favors 1 seed in Round 1', function() {
+    it('favors team1 No. 1 seed in Round 1', function() {
       team1.seed = 1, team2.seed = 2;
       bracket(game, team1, team2);
       expect(team1).toHaveWon();
       expect(team2).toHaveLost();
     });
 
-    it('favors 1 seed in Round 1', function() {
+    it('favors team2 No. 1 seed in Round 1', function() {
       team2.seed = 1; team1.seed = 2;
       bracket(game, team1, team2);
       expect(team2).toHaveWon();
@@ -47,13 +47,13 @@ describe("Bracket" , function() {
   });
 
   describe("Otherwise", function() {
-    it('higher seed wins', function() {
+    it('higher seed team 1 wins', function() {
       team1.seed = 2, team2.seed = 3;
       bracket(game, team1, team2);
       expect(team1).toHaveWon();
       expect(team2).toHaveLost();
     });
-    it('higher seed wins', function() {
+    it('higher seed team 2 wins', function() {
       team2.seed = 2, team1.seed = 3;
       bracket(game, team1, team2);
       expect(team2).toHaveWon();
